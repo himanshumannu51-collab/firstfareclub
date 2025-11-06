@@ -1,127 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>First Fare Club | The Travel Rates You're Not Supposed to Know About</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Inter',sans-serif;color:#fff;background:#000;line-height:1.6;overflow-x:hidden;}
-h1,h2,h3{font-family:'Playfair Display',serif;}
-
-/* Container */
-.container{width:90%;max-width:1200px;margin:0 auto;}
-
-/* Animations */
-@keyframes fadeInUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
-@keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.05);}100%{transform:scale(1);}}
-
-/* Hero Section */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:2rem 0;}
-.hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:brightness(0.35);}
-.hero::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at center,rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.9) 100%);z-index:1;}
-.hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(212,175,55,0.12),rgba(0,0,0,0.8),rgba(59,130,246,0.08));z-index:1;}
-
-.hero-content{position:relative;z-index:2;text-align:center;max-width:900px;padding:2rem;animation:fadeInUp 1.2s ease-out;}
-
-.trust-badge{display:inline-block;background:rgba(212,175,55,0.2);backdrop-filter:blur(10px);border:1px solid rgba(212,175,55,0.5);padding:0.6rem 1.8rem;border-radius:30px;font-size:0.75rem;margin-bottom:1.5rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;box-shadow:0 4px 15px rgba(212,175,55,0.2);}
-
-.hero h1{font-size:3.5rem;margin-bottom:1.5rem;line-height:1.15;text-shadow:0 2px 20px rgba(0,0,0,0.5);}
-.hero h1 .highlight{background:linear-gradient(135deg,#d4af37,#f4d03f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-
-.hero-subhead{font-size:1.4rem;margin-bottom:1.5rem;color:rgba(255,255,255,0.95);font-weight:500;text-shadow:0 2px 10px rgba(0,0,0,0.3);}
-.hero-value{font-size:1.15rem;margin-bottom:2.5rem;color:rgba(255,255,255,0.85);max-width:700px;margin-left:auto;margin-right:auto;line-height:1.8;}
-
-.cta-primary{display:inline-flex;align-items:center;gap:0.75rem;background:linear-gradient(135deg,#d4af37,#f4d03f);color:#0a0e1a;padding:1.4rem 3.5rem;font-weight:700;border:none;border-radius:50px;font-size:1.2rem;transition:all 0.4s;box-shadow:0 8px 30px rgba(212,175,55,0.4);position:relative;overflow:hidden;}
-.cta-primary::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);transition:0.6s;}
-.cta-primary:hover::before{left:100%;}
-.cta-primary:hover{background:linear-gradient(135deg,#f4d03f,#d4af37);transform:translateY(-3px) scale(1.02);box-shadow:0 12px 40px rgba(212,175,55,0.6);}
-
-.cta-subtext{font-size:0.9rem;color:rgba(255,255,255,0.7);margin-top:0.75rem;font-weight:500;}
-
-.stats-bar{display:flex;justify-content:center;gap:4rem;margin-top:4rem;flex-wrap:wrap;}
-.stat{text-align:center;position:relative;padding:1rem;animation:fadeInUp 1s ease-out;}
-.stat::after{content:"";position:absolute;right:-2rem;top:50%;transform:translateY(-50%);width:1px;height:40px;background:rgba(212,175,55,0.3);}
-.stat:last-child::after{display:none;}
-.stat-number{font-size:2.5rem;font-weight:700;background:linear-gradient(135deg,#d4af37,#f4d03f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;line-height:1;}
-.stat-label{font-size:0.9rem;color:rgba(255,255,255,0.7);margin-top:0.5rem;font-weight:500;}
-
-/* Urgency Banner */
-.urgency-banner{background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(212,175,55,0.08));border-top:1px solid rgba(212,175,55,0.3);border-bottom:1px solid rgba(212,175,55,0.3);padding:1rem 0;text-align:center;font-size:0.9rem;color:rgba(255,255,255,0.85);font-weight:500;backdrop-filter:blur(10px);}
-.urgency-banner span{color:#d4af37;font-weight:700;animation:pulse 1.2s infinite;}
-
-/* How It Works */
-.how-it-works{padding:6rem 0;background:linear-gradient(180deg,#000 0%,#0a0f1e 50%,#000 100%);position:relative;}
-.how-it-works::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 20% 50%,rgba(59,130,246,0.06) 0%,transparent 50%),radial-gradient(circle at 80% 50%,rgba(212,175,55,0.05) 0%,transparent 50%);pointer-events:none;}
-.how-it-works h2{font-size:3rem;text-align:center;margin-bottom:1.5rem;background:linear-gradient(135deg,#d4af37,#f4d03f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.how-subtitle{text-align:center;font-size:1.2rem;color:rgba(255,255,255,0.8);margin-bottom:4rem;max-width:750px;margin-left:auto;margin-right:auto;font-weight:500;}
-
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2.5rem;margin-top:3rem;position:relative;}
-.step{background:rgba(255,255,255,0.04);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);padding:2.5rem;border-radius:16px;text-align:center;transition:all 0.4s;position:relative;overflow:hidden;}
-.step::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(212,175,55,0.1),transparent);opacity:0;transition:0.4s;}
-.step:hover::before{opacity:1;}
-.step:hover{transform:translateY(-8px);border-color:rgba(212,175,55,0.5);box-shadow:0 12px 35px rgba(212,175,55,0.25);}
-.step-number{width:70px;height:70px;background:linear-gradient(135deg,#d4af37,#f4d03f);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;color:#0a0e1a;margin:0 auto 1rem;box-shadow:0 6px 20px rgba(212,175,55,0.3);}
-.step-title{font-size:1.2rem;font-weight:600;margin-bottom:0.75rem;}
-.step-desc{font-size:0.95rem;color:rgba(255,255,255,0.7);line-height:1.6;}
-
-/* Cards Section */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:4rem;}
-.card{background:rgba(255,255,255,0.03);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:2rem;transition:0.4s;position:relative;overflow:hidden;}
-.card:hover{transform:translateY(-6px);border-color:rgba(212,175,55,0.5);box-shadow:0 12px 35px rgba(212,175,55,0.2);}
-.card h3{font-size:1.3rem;margin-bottom:1rem;}
-.card p{color:rgba(255,255,255,0.75);line-height:1.5;}
-
-/* WhatsApp CTA */
-.whatsapp-cta{position:fixed;bottom:2rem;right:2rem;background:#25D366;color:#fff;padding:1rem 1.4rem;border-radius:50px;font-weight:600;font-size:1rem;display:flex;align-items:center;gap:0.6rem;box-shadow:0 8px 25px rgba(0,0,0,0.3);animation:pulse 1.5s infinite;z-index:1000;text-decoration:none;}
-
-/* Responsive */
-@media(max-width:768px){.hero h1{font-size:2.5rem;}.stats-bar{gap:2rem;}.cta-primary{padding:1rem 2.5rem;}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>First Fare Club – Insider Flight Deals</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<section class="hero">
-  <video autoplay muted loop>
-    <source src="hero-video.mp4" type="video/mp4">
-  </video>
-  <div class="hero-content container">
-    <span class="trust-badge">Insider Access</span>
-    <h1>Unlock <span class="highlight">Secret Travel Rates</span></h1>
-    <p class="hero-subhead">We connect you directly to top wholesalers & consolidators — no membership fees, no hidden charges.</p>
-    <p class="hero-value">Save hundreds every trip. Imagine booking business class for the price of economy — this is what First Fare Club delivers.</p>
-    <a href="#connect" class="cta-primary">Connect Now</a>
-    <p class="cta-subtext">Your first exclusive deal is waiting.</p>
-
-    <div class="stats-bar">
-      <div class="stat"><span class="stat-number">1,234</span><span class="stat-label">Flights Booked</span></div>
-      <div class="stat"><span class="stat-number">567</span><span class="stat-label">Hotels Reserved</span></div>
-      <div class="stat"><span class="stat-number">89%</span><span class="stat-label">Avg Savings</span></div>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="overlay">
+      <h1>First Fare Club</h1>
+      <p class="tagline">Unlock Business Class for Economy Prices</p>
+      <a href="#deals" class="cta">Browse Insider Deals</a>
+      <p class="subtext">Trusted by 1,200+ travelers worldwide</p>
     </div>
-  </div>
-</section>
+  </header>
 
-<div class="urgency-banner"><span>Hurry!</span> Only a few deals left this week.</div>
+  <!-- Benefits Section -->
+  <section class="benefits">
+    <h2>Why Join?</h2>
+    <div class="benefit-grid">
+      <div class="benefit">
+        <h3>Exclusive Access</h3>
+        <p>Get consolidator fares and hidden rates not available to the public.</p>
+      </div>
+      <div class="benefit">
+        <h3>Massive Savings</h3>
+        <p>Save up to 80% on premium cabins and long-haul flights.</p>
+      </div>
+      <div class="benefit">
+        <h3>Simple Process</h3>
+        <p>Request, confirm, and book in just three easy steps.</p>
+      </div>
+    </div>
+  </section>
 
-<section class="how-it-works container">
-  <h2>How It Works</h2>
-  <p class="how-subtitle">Three simple steps to unlock the travel deals others don’t see.</p>
-  <div class="steps">
-    <div class="step"><div class="step-number">1</div><div class="step-title">Connect</div><div class="step-desc">Tell us your travel plans and destinations.</div></div>
-    <div class="step"><div class="step-number">2</div><div class="step-title">Access</div><div class="step-desc">We connect you to wholesalers and consolidators instantly.</div></div>
-    <div class="step"><div class="step-number">3</div><div class="step-title">Book & Save</div><div class="step-desc">Grab deals up to 50-80% off mainstream rates.</div></div>
-  </div>
-</section>
+  <!-- Deals Section (keep your existing cards here) -->
+  <section id="deals" class="deals">
+    <h2>Featured Insider Deals</h2>
+    <div class="card-grid">
+      <!-- Keep your existing card HTML here -->
+      <!-- Example card -->
+      <div class="card">
+        <h3>New York → London</h3>
+        <p>Business Class – Save 72%</p>
+        <button>Unlock Deal</button>
+      </div>
+    </div>
+  </section>
 
-<section class="cards container">
-  <div class="card"><h3>Business Class Deals</h3><p>Fly luxuriously without the premium price. Experience the difference directly through our insider connections.</p></div>
-  <div class="card"><h3>Hotel Discounts</h3><p>Book top-rated hotels at prices normally reserved for agencies. Your wallet will thank you.</p></div>
-  <div class="card"><h3>Multi-City Routes</h3><p>Plan complex itineraries easily with hidden rates that only insiders can access.</p></div>
-  <div class="card"><h3>Exclusive Consolidator Access</h3><p>Access fares not listed on public platforms, saving you time and money.</p></div>
-</section>
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>What Members Say</h2>
+    <div class="testimonial-grid">
+      <blockquote>
+        “Saved $800 on my Europe trip — felt like a secret upgrade.”
+        <cite>– Sarah M.</cite>
+      </blockquote>
+      <blockquote>
+        “Finally flying business without breaking the bank.”
+        <cite>– Omar K.</cite>
+      </blockquote>
+    </div>
+  </section>
 
-<a href="https://wa.me/1234567890" class="whatsapp-cta">💬 Chat Now</a>
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <h2>Ready to Fly Smarter?</h2>
+    <a href="#join" class="cta big">Join First Fare Club Now</a>
+  </section>
 
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 First Fare Club. All rights reserved.</p>
+    <p>Secure booking | Insider partnerships | Premium support</p>
+  </footer>
 </body>
 </html>
