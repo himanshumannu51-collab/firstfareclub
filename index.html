@@ -1,80 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>First Fare Club – Insider Flight Deals</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Fare Club | Wholesale Travel Rates You're Not Supposed to Know About</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Inter',sans-serif;color:#fff;background:#000;line-height:1.6;overflow-x:hidden;}
+  h1,h2,h3{font-family:'Playfair Display',serif;}
+  a{text-decoration:none;color:inherit;}
+  
+  .container{width:90%;max-width:1200px;margin:0 auto;}
+  
+  /* Hero Section - Clean with Video */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:brightness(0.35);}
+  .hero::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at center,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.85) 100%);z-index:1;}
+  .hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(212,175,55,0.1),rgba(0,0,0,0.7),rgba(59,130,246,0.06));z-index:1;}
+  
+  .hero-content{position:relative;z-index:2;text-align:center;max-width:850px;padding:2rem;animation:fadeIn 1.2s ease-out;}
+  
+  .trust-badge{display:inline-block;background:rgba(212,175,55,0.2);backdrop-filter:blur(10px);border:1px solid rgba(212,175,55,0.5);padding:0.5rem 1.5rem;border-radius:30px;font-size:0.7rem;margin-bottom:1.5rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;}
+  
+  .hero h1{font-size:3.8rem;margin-bottom:1.25rem;line-height:1.1;font-weight:700;letter-spacing:-1px;}
+  .hero h1 .highlight{background:linear-gradient(135deg,#d4af37,#f4d03f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  
+  .hero-subhead{font-size:1.5rem;margin-bottom:1.25rem;color:rgba(255,255,255,0.95);font-weight:500;line-height:1.3;}
+  
+  .hero-description{font-size:1.1rem;margin-bottom:2.5rem;color:rgba(255,255,255,0.8);max-width:650px;margin-left:auto;margin-right:auto;line-height:1.7;}
+  
+  .cta-primary{display:inline-flex;align-items:center;gap:0.75rem;background:linear-gradient(135deg,#d4af37,#f4d03f);color:#000;padding:1.3rem 3.5rem;font-weight:700;border:none;border-radius:50px;font-size:1.2rem;transition:all 0.4s;box-shadow:0 8px 30px rgba(212,175,55,0.4);cursor:pointer;}
+  .cta-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 40px rgba(212,175,55,0.6);}
+  
+  .cta-subtext{font-size:0.85rem;color:rgba(255,255,255,0.65);margin-top:0.75rem;font-weight:500;}
+  
+  .stats-bar{display:flex;justify-content:center;gap:4rem;margin-top:3.5rem;flex-wrap:wrap;}
+  .stat{text-align:center;}
+  .stat-number{font-size:2.5rem;font-weight:700;background:linear-gradient(135deg,#d4af37,#f4d03f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;line-height:1;}
+  .stat-label{font-size:0.85rem;color:rgba(255,255,255,0.65);margin-top:0.5rem;font-weight:500;}
+  
+  @keyframes fadeIn{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+  
+  /* Urgency Banner */
+  .urgency-banner{background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(212,175,55,0.08));border-bottom:1px solid rgba(212,175,55,0.3);padding:1rem 0;text-align:center;font-size:0.9rem;color:rgba(255,255,255,0.85);font-weight:500;}
+  .urgency-banner span{color:#d4af37;font-weight:700;}
+  
+  /* How It Works - Clean Minimal */
+  .how-it-works{padding:6rem 0;background:linear-gradient(180deg,#000 0%,#0a0f1e 50%,#000 100%);}
+  
+  .section-title{font-size:3rem;text-align:center;margin-bottom:1rem;background:linear-gradient(135deg,#d4af37,#f4d03f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700;}
+  .section-subtitle{text-align:center;font-size:1.1rem;color:rgba(255,255,255,0.7);margin-bottom:4rem;font-weight:400;}
+  
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;margin-top:3rem;}
+  .step{background:rgba(255,255,255,0.03);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08);padding:2rem;border-radius:16px;text-align:center;transition:all 0.3s;}
+  .step:hover{transform:translateY(-5px);border-color:rgba(212,175,55,0.4);box-shadow:0 10px 30px rgba(212,175,55,0.2);}
+  .step-number{width:60px;height:60px;background:linear-gradient(135deg,#d4af37,#f4d03f);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:700;margin:0 auto 1.25rem;color:#000;}
+  .step h3{font-size:1.3rem;margin-bottom:0.75rem;color:#fff;font-weight:600;}
+  .step p{color:rgba(255,255,255,0.7);font-size:0.95rem;line-height:1.6;}
+  
+  /* Savings Cards - THE CARDS YOU LOVED */
+  .savings{padding:6rem 0;background:linear-gradient(180deg,#0a1a14 0%,#000 50%,#0a0f1e 100%);}
+  
+  .savings-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem;margin-top:3rem;}
+  .savings-card{background:rgba(255,255,255,0.04);backdrop-filter:blur(10px);padding:2.5rem;border-radius:16px;border:1px solid rgba(255,255,255,0.08);transition:all 0.3s;position:relative;overflow:hidden;}
+  .savings-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(212,175,55,0.08),transparent);opacity:0;transition:0.3s;}
+  .savings-card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(212,175,55,0.25);border-color:rgba(212,175,55,0.3);}
+  .savings-card:hover::before{opacity:1;}
+  .savings-card h3{font-size:1.5rem;margin-bottom:1.5rem;background:linear-gradient(135deg,#d4af37,#f4d03f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center;font-weight:700;}
+  .price-row{display:flex;justify-content:space-between;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .price-label{color:rgba(255,255,255,0.65);font-size:0.9rem;}
+  .price-value{font-weight:600;font-size:1.05rem;}
+  .retail{text-decoration:line-through;color:rgba(255,255,255,0.4);}
+  .insider{color:#4ade80;font-weight:700;}
+  .savings-amount{background:linear-gradient(135deg,#d4af37,#f4d03f);color:#000;padding:1.25rem;border-radius:10px;text-align:center;margin-top:1.5rem;font-weight:800;font-size:1.2rem;box-shadow:0 4px 20px rgba(212,175,55,0.3);}
+  
+  /* Benefits - Clean Grid */
+  .benefits{padding:6rem 0;background:linear-gradient(135deg,#000 0%,#0a1a14 100%);}
+  
+  .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem;}
+  .benefit-card{background:rgba(255,255,255,0.03);backdrop-filter:blur(10px);border-left:3px solid #d4af37;padding:2rem;border-radius:12px;transition:all 0.3s;}
+  .benefit-card:hover{background:rgba(255,255,255,0.05);transform:translateX(5px);}
+  .benefit-icon{font-size:2.3rem;margin-bottom:1.25rem;}
+  .benefit-card h3{font-size:1.2rem;margin-bottom:0.75rem;color:#fff;font-weight:600;}
+  .benefit-card p{color:rgba(255,255,255,0.7);font-size:0.95rem;line-height:1.7;}
+  
+  /* Testimonials - Minimal Clean */
+  .testimonials{padding:6rem 0;background:#000;}
+  
+  .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem;}
+  .testimonial{background:rgba(255,255,255,0.03);backdrop-filter:blur(10px);padding:2rem;border-radius:16px;border-left:3px solid #d4af37;transition:all 0.3s;}
+  .testimonial:hover{transform:translateY(-3px);background:rgba(255,255,255,0.05);}
+  .testimonial-text{font-style:italic;color:rgba(255,255,255,0.8);margin-bottom:1.5rem;font-size:1rem;line-height:1.7;}
+  .testimonial-author{display:flex;align-items:center;gap:1rem;}
+  .author-initial{width:50px;height:50px;background:linear-gradient(135deg,#d4af37,#f4d03f);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.3rem;color:#000;}
+  .author-info{flex:1;}
+  .author-name{font-weight:600;color:#fff;font-size:1rem;}
+  .author-save{font-size:0.85rem;color:#4ade80;margin-top:0.25rem;font-weight:600;}
+  
+  /* Email Capture */
+  .email-capture{padding:6rem 0;background:linear-gradient(135deg,#0a0f1e 0%,#000 50%,#0a1a14 100%);}
+  
+  .email-form{max-width:600px;margin:0 auto;background:rgba(255,255,255,0.04);backdrop-filter:blur(15px);padding:2.5rem;border-radius:20px;border:1px solid rgba(212,175,55,0.25);}
+  .form-group{margin-bottom:1.5rem;}
+  .form-group label{display:block;margin-bottom:0.5rem;font-weight:600;color:rgba(255,255,255,0.9);font-size:0.9rem;}
+  .form-group input{width:100%;padding:1rem 1.25rem;border-radius:10px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);color:#fff;font-size:1rem;transition:all 0.3s;}
+  .form-group input:focus{outline:none;border-color:#d4af37;background:rgba(255,255,255,0.08);}
+  .form-group input::placeholder{color:rgba(255,255,255,0.4);}
+  
+  .form-benefit{background:rgba(212,175,55,0.1);padding:1.25rem;border-radius:10px;margin-bottom:1.5rem;font-size:0.9rem;color:rgba(255,255,255,0.8);line-height:1.7;border:1px solid rgba(212,175,55,0.2);}
+  
+  .btn-submit{width:100%;background:linear-gradient(135deg,#d4af37,#f4d03f);color:#000;padding:1.25rem;font-weight:700;border:none;border-radius:10px;font-size:1.1rem;cursor:pointer;transition:all 0.3s;}
+  .btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(212,175,55,0.4);}
+  
+  .privacy-note{text-align:center;margin-top:1rem;font-size:0.8rem;color:rgba(255,255,255,0.5);}
+  
+  .whatsapp-alt{text-align:center;margin-top:1.5rem;}
+  .whatsapp-alt p{color:rgba(255,255,255,0.6);margin-bottom:1rem;font-size:0.9rem;}
+  .whatsapp-alt .cta-primary{padding:1rem 2.5rem;font-size:1rem;}
+  
+  /* Footer */
+  footer{text-align:center;padding:3rem 0;background:#000;font-size:0.85rem;color:rgba(255,255,255,0.5);border-top:1px solid rgba(255,255,255,0.05);}
+  footer a{color:#d4af37;transition:0.3s;}
+  footer a:hover{color:#f4d03f;}
+  
+  /* Responsive */
+  @media(max-width:768px){
+    .hero h1{font-size:2.5rem;}
+    .hero-subhead{font-size:1.2rem;}
+    .stats-bar{gap:2rem;}
+    .stat-number{font-size:2rem;}
+    .cta-primary{padding:1.1rem 2.5rem;font-size:1.05rem;}
+    .section-title{font-size:2.2rem;}
+    .savings-cards,.benefits-grid,.testimonials-grid{grid-template-columns:1fr;}
+  }
+</style>
 </head>
 <body>
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="overlay">
-      <h1>First Fare Club</h1>
-      <p class="tagline">Unlock Business Class for Economy Prices</p>
-      <a href="#deals" class="cta">Browse Insider Deals</a>
-      <p class="subtext">Trusted by 1,200+ travelers worldwide</p>
-    </div>
-  </header>
 
-  <!-- Benefits Section -->
-  <section class="benefits">
-    <h2>Why Join?</h2>
-    <div class="benefit-grid">
-      <div class="benefit">
-        <h3>Exclusive Access</h3>
-        <p>Get consolidator fares and hidden rates not available to the public.</p>
+<!-- HERO -->
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="https://cdn.videvo.net/videvo_files/video/free/2019-11/large_watermarked/190919_07_Luxury_Maldives_1080p_preview.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content container">
+    <div class="trust-badge">✓ 500+ TRAVELERS | $1.6M+ SAVED | IATA-CERTIFIED</div>
+    
+    <h1>Get Consolidator Fares <span class="highlight">Not Available to the Public</span></h1>
+    
+    <p class="hero-subhead">Save 30-60% on Premium Cabins and Luxury Hotels</p>
+    
+    <p class="hero-description">Direct wholesale rates that travel agencies mark up 40%. Request, confirm, and book in three easy steps.</p>
+    
+    <a id="whatsappBtn" href="https://wa.me/919773533563?text=Hi%20Himanshu%2C%20I%20want%20wholesale%20rates%20for%20my%20next%20trip" target="_blank">
+      <button class="cta-primary">
+        <span>💬</span> Get Free Quote on WhatsApp
+      </button>
+    </a>
+    <p class="cta-subtext">Response in 60 min • 24/7 Support • Zero Commitment</p>
+    
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="stat-number">500+</span>
+        <span class="stat-label">Travelers Served</span>
       </div>
-      <div class="benefit">
-        <h3>Massive Savings</h3>
-        <p>Save up to 80% on premium cabins and long-haul flights.</p>
+      <div class="stat">
+        <span class="stat-number">$3,200</span>
+        <span class="stat-label">Average Saved</span>
       </div>
-      <div class="benefit">
-        <h3>Simple Process</h3>
-        <p>Request, confirm, and book in just three easy steps.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Deals Section (keep your existing cards here) -->
-  <section id="deals" class="deals">
-    <h2>Featured Insider Deals</h2>
-    <div class="card-grid">
-      <!-- Keep your existing card HTML here -->
-      <!-- Example card -->
-      <div class="card">
-        <h3>New York → London</h3>
-        <p>Business Class – Save 72%</p>
-        <button>Unlock Deal</button>
+      <div class="stat">
+        <span class="stat-number">10+</span>
+        <span class="stat-label">Years Experience</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Testimonials -->
-  <section class="testimonials">
-    <h2>What Members Say</h2>
-    <div class="testimonial-grid">
-      <blockquote>
-        “Saved $800 on my Europe trip — felt like a secret upgrade.”
-        <cite>– Sarah M.</cite>
-      </blockquote>
-      <blockquote>
-        “Finally flying business without breaking the bank.”
-        <cite>– Omar K.</cite>
-      </blockquote>
+<!-- URGENCY BANNER -->
+<div class="urgency-banner">
+  🔥 <span id="spotsLeft">7</span> consultation spots left this week • Avg response time: <span>45 minutes</span>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works">
+  <div class="container">
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-subtitle">Request, confirm, and book in just three easy steps</p>
+    
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Tell Me Where</h3>
+        <p>Share your destination and travel dates via WhatsApp. Takes 30 seconds.</p>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Get Wholesale Rates</h3>
+        <p>I check consolidator networks for unpublished inventory and send you real pricing.</p>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Book & Save</h3>
+        <p>Book directly with IATA-certified consolidators. Travel for 30-60% less than retail.</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Call to Action -->
-  <section class="cta-section">
-    <h2>Ready to Fly Smarter?</h2>
-    <a href="#join" class="cta big">Join First Fare Club Now</a>
-  </section>
+<!-- SAVINGS CARDS -->
+<section class="savings">
+  <div class="container">
+    <h2 class="section-title">Real Savings, Real Travelers</h2>
+    <p class="section-subtitle">See what you keep when you skip the agency markup</p>
+    
+    <div class="savings-cards">
+      <div class="savings-card">
+        <h3>🏝️ Maldives Overwater Villa</h3>
+        <div class="price-row">
+          <span class="price-label">Booking.com Rate:</span>
+          <span class="price-value retail">$5,200</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Consolidator Rate:</span>
+          <span class="price-value insider">$3,100</span>
+        </div>
+        <div class="savings-amount">You Save: $2,100</div>
+      </div>
+      
+      <div class="savings-card">
+        <h3>✈️ Dubai Business Class</h3>
+        <div class="price-row">
+          <span class="price-label">Airline Website:</span>
+          <span class="price-value retail">$3,400</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Consolidator Rate:</span>
+          <span class="price-value insider">$1,900</span>
+        </div>
+        <div class="savings-amount">You Save: $1,500</div>
+      </div>
+      
+      <div class="savings-card">
+        <h3>🇹🇭 Bangkok Luxury Package</h3>
+        <div class="price-row">
+          <span class="price-label">Flight + 5-Star Hotel:</span>
+          <span class="price-value retail">$3,800</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">Consolidator Bundle:</span>
+          <span class="price-value insider">$2,200</span>
+        </div>
+        <div class="savings-amount">You Save: $1,600</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 First Fare Club. All rights reserved.</p>
-    <p>Secure booking | Insider partnerships | Premium support</p>
-  </footer>
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="container">
+    <h2 class="section-title">Why Retail Travelers Overpay</h2>
+    <p class="section-subtitle">The wholesale advantage explained</p>
+    
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">🔓</div>
+        <h3>Unpublished Inventory</h3>
+        <p>Bulk airline contracts and hotel allotments never listed on Google Flights or Expedia.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon">💎</div>
+        <h3>True Wholesale Pricing</h3>
+        <p>Same rates luxury agencies pay before 40% markup. Your savings = their profit.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon">🛡️</div>
+        <h3>IATA-Certified Partners</h3>
+        <p>Every consolidator is fully accredited with $5M+ annual booking volume.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon">⚡</div>
+        <h3>Mistake Fares First</h3>
+        <p>$400 business class to Europe? Get alerted before it goes viral and disappears.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon">🎯</div>
+        <h3>VIP Service, Zero Fees</h3>
+        <p>Direct WhatsApp support for upgrades, seat selection, and special requests.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon">📊</div>
+        <h3>Complete Transparency</h3>
+        <p>See exactly what consolidators charge. No hidden fees or service charges.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <h2 class="section-title">Trusted by Smart Travelers</h2>
+    <p class="section-subtitle">Real people, real savings</p>
+    
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <p class="testimonial-text">"Saved $4,350 on business class to Tokyo. Himanshu showed me actual consolidator pricing. Completely transparent."</p>
+        <div class="testimonial-author">
+          <div class="author-initial">J</div>
+          <div class="author-info">
+            <div class="author-name">John D., Tech CEO</div>
+            <div class="author-save">Saved $4,350</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        <p class="testimonial-text">"Maldives honeymoon at 40% off retail. Same villa we saw on luxury blogs for thousands less. No catches."</p>
+        <div class="testimonial-author">
+          <div class="author-initial">S</div>
+          <div class="author-info">
+            <div class="author-name">Sophia L., Entrepreneur</div>
+            <div class="author-save">Saved $2,100</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        <p class="testimonial-text">"Travel monthly for business. Direct consolidator access saved me from 30% agency markups. Game-changer."</p>
+        <div class="testimonial-author">
+          <div class="author-initial">M</div>
+          <div class="author-info">
+            <div class="author-name">Mark T., Investor</div>
+            <div class="author-save">Saved $6,500+ yearly</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL CAPTURE -->
+<section class="email-capture">
+  <div class="container">
+    <h2 class="section-title">Get Insider Deals Weekly</h2>
+    <p class="section-subtitle">Join 1,200+ travelers getting mistake fares and flash sales first</p>
+    
+    <form class="email-form" id="emailForm">
+      <div class="form-benefit">
+        ✓ Weekly mistake fares & flash sales<br>
+        ✓ Destination-specific alerts<br>
+        ✓ Unpublished inventory access<br>
+        ✓ Unsubscribe anytime
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="you@example.com" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="destination">Dream Destination (Optional)</label>
+        <input type="text" id="destination" placeholder="e.g., Maldives, Dubai, Tokyo">
+      </div>
+      
+      <button type="submit" class="btn-submit">Get Insider Deals →</button>
+      
+      <div class="whatsapp-alt">
+        <p>Or skip the wait:</p>
+        <a href="https://wa.me/919773533563?text=Hi%20Himanshu%2C%20I%20want%20wholesale%20rates%20for%20my%20next%20trip" target="_blank">
+          <button type="button" class="cta-primary">
+            <span>💬</span> Text Me on WhatsApp Now
+          </button>
+        </a>
+      </div>
+      
+      <p class="privacy-note">No spam. Unsubscribe anytime. Your data stays private.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>&copy; 2025 First Fare Club by Himanshu Joshi. All rights reserved.</p>
+    <p style="margin-top:0.5rem;">
+      <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Urgency Counter
+  function updateUrgency(){
+    const spots = [5,6,7,8][Math.floor(Math.random()*4)];
+    const spotsEl = document.getElementById('spotsLeft');
+    if(spotsEl) spotsEl.textContent = spots;
+  }
+  updateUrgency();
+  setInterval(updateUrgency, 180000);
+
+  // Email Form Handler
+  document.getElementById('emailForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value;
+    const destination = document.getElementById('destination').value;
+    
+    const message = encodeURIComponent(
+      `Hi Himanshu, sign me up for insider deals!\n\nEmail: ${email}\nInterested in: ${destination || 'Multiple destinations'}`
+    );
+    
+    alert('Perfect! Redirecting to WhatsApp to confirm...');
+    window.open(`https://wa.me/919773533563?text=${message}`, '_blank');
+    this.reset();
+  });
+</script>
 </body>
 </html>
