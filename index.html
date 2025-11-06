@@ -62,4 +62,66 @@ h1,h2,h3{font-family:'Playfair Display',serif;}
 .step::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(212,175,55,0.1),transparent);opacity:0;transition:0.4s;}
 .step:hover::before{opacity:1;}
 .step:hover{transform:translateY(-8px);border-color:rgba(212,175,55,0.5);box-shadow:0 12px 35px rgba(212,175,55,0.25);}
-.step-number{width:70px;height:70px;background:linear-gradient(135deg,#d4af37,#f4d03f);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:
+.step-number{width:70px;height:70px;background:linear-gradient(135deg,#d4af37,#f4d03f);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;color:#0a0e1a;margin:0 auto 1rem;box-shadow:0 6px 20px rgba(212,175,55,0.3);}
+.step-title{font-size:1.2rem;font-weight:600;margin-bottom:0.75rem;}
+.step-desc{font-size:0.95rem;color:rgba(255,255,255,0.7);line-height:1.6;}
+
+/* Cards Section */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:4rem;}
+.card{background:rgba(255,255,255,0.03);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:2rem;transition:0.4s;position:relative;overflow:hidden;}
+.card:hover{transform:translateY(-6px);border-color:rgba(212,175,55,0.5);box-shadow:0 12px 35px rgba(212,175,55,0.2);}
+.card h3{font-size:1.3rem;margin-bottom:1rem;}
+.card p{color:rgba(255,255,255,0.75);line-height:1.5;}
+
+/* WhatsApp CTA */
+.whatsapp-cta{position:fixed;bottom:2rem;right:2rem;background:#25D366;color:#fff;padding:1rem 1.4rem;border-radius:50px;font-weight:600;font-size:1rem;display:flex;align-items:center;gap:0.6rem;box-shadow:0 8px 25px rgba(0,0,0,0.3);animation:pulse 1.5s infinite;z-index:1000;text-decoration:none;}
+
+/* Responsive */
+@media(max-width:768px){.hero h1{font-size:2.5rem;}.stats-bar{gap:2rem;}.cta-primary{padding:1rem 2.5rem;}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <video autoplay muted loop>
+    <source src="hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content container">
+    <span class="trust-badge">Insider Access</span>
+    <h1>Unlock <span class="highlight">Secret Travel Rates</span></h1>
+    <p class="hero-subhead">We connect you directly to top wholesalers & consolidators — no membership fees, no hidden charges.</p>
+    <p class="hero-value">Save hundreds every trip. Imagine booking business class for the price of economy — this is what First Fare Club delivers.</p>
+    <a href="#connect" class="cta-primary">Connect Now</a>
+    <p class="cta-subtext">Your first exclusive deal is waiting.</p>
+
+    <div class="stats-bar">
+      <div class="stat"><span class="stat-number">1,234</span><span class="stat-label">Flights Booked</span></div>
+      <div class="stat"><span class="stat-number">567</span><span class="stat-label">Hotels Reserved</span></div>
+      <div class="stat"><span class="stat-number">89%</span><span class="stat-label">Avg Savings</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="urgency-banner"><span>Hurry!</span> Only a few deals left this week.</div>
+
+<section class="how-it-works container">
+  <h2>How It Works</h2>
+  <p class="how-subtitle">Three simple steps to unlock the travel deals others don’t see.</p>
+  <div class="steps">
+    <div class="step"><div class="step-number">1</div><div class="step-title">Connect</div><div class="step-desc">Tell us your travel plans and destinations.</div></div>
+    <div class="step"><div class="step-number">2</div><div class="step-title">Access</div><div class="step-desc">We connect you to wholesalers and consolidators instantly.</div></div>
+    <div class="step"><div class="step-number">3</div><div class="step-title">Book & Save</div><div class="step-desc">Grab deals up to 50-80% off mainstream rates.</div></div>
+  </div>
+</section>
+
+<section class="cards container">
+  <div class="card"><h3>Business Class Deals</h3><p>Fly luxuriously without the premium price. Experience the difference directly through our insider connections.</p></div>
+  <div class="card"><h3>Hotel Discounts</h3><p>Book top-rated hotels at prices normally reserved for agencies. Your wallet will thank you.</p></div>
+  <div class="card"><h3>Multi-City Routes</h3><p>Plan complex itineraries easily with hidden rates that only insiders can access.</p></div>
+  <div class="card"><h3>Exclusive Consolidator Access</h3><p>Access fares not listed on public platforms, saving you time and money.</p></div>
+</section>
+
+<a href="https://wa.me/1234567890" class="whatsapp-cta">💬 Chat Now</a>
+
+</body>
+</html>
