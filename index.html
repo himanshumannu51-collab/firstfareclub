@@ -1,250 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>First Fare Club</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    /* Base styles */
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #0B1D3A;
-      color: #ffffff;
-      overflow-x: hidden;
-    }
-    h1, h2 {
-      font-family: 'Playfair Display', serif;
-      margin: 0;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Fare Club | The Travel Rates You're Not Supposed to Know About</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;color:#fff;background:#000;line-height:1.6;overflow-x:hidden;}
+h1,h2,h3{font-family:'Playfair Display',serif;}
 
-    /* Hero */
-    .hero {
-      position: relative;
-      height: 100vh;
-      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      overflow: hidden;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(11,29,58,0.6), rgba(11,29,58,0.8));
-      z-index: 1;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      animation: fadeInSlide 1.2s ease forwards;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      color: gold;
-      letter-spacing: 2px;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      color: #f8f8f8;
-    }
-    .cta-button {
-      background: linear-gradient(90deg, #FFD700, #FFA500);
-      color: #0B1D3A;
-      font-weight: 600;
-      padding: 0.8rem 2rem;
-      border-radius: 8px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .cta-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    }
-    .fomo {
-      margin-top: 0.8rem;
-      font-size: 0.9rem;
-      color: #FFD700;
-    }
+/* Container */
+.container{width:90%;max-width:1200px;margin:0 auto;}
 
-    /* Sections */
-    section {
-      padding: 5rem 2rem;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .section-heading {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      color: gold;
-      letter-spacing: 1px;
-    }
-    .testimonials, .savings {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
-    }
-    .card {
-      background: rgba(255,255,255,0.05);
-      padding: 1.5rem;
-      border-radius: 12px;
-      width: 280px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    }
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      color: gold;
-    }
-    .card p {
-      margin: 0;
-      color: #f0f0f0;
-    }
+/* Animations */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%{transform:scale(1);}50%{transform:scale(1.05);}100%{transform:scale(1);}}
 
-    /* Form */
-    .contact-form {
-      max-width: 500px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.05);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      text-align: left;
-    }
-    .contact-form label {
-      display: block;
-      margin-bottom: 0.3rem;
-      font-weight: 500;
-    }
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 0.8rem;
-      margin-bottom: 1rem;
-      border-radius: 6px;
-      border: none;
-      outline: none;
-    }
-    .contact-form button {
-      background: linear-gradient(90deg, #FFD700, #FFA500);
-      color: #0B1D3A;
-      font-weight: 600;
-      padding: 0.8rem 2rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .contact-form button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-    }
+/* Hero Section */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:2rem 0;}
+.hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:brightness(0.35);}
+.hero::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at center,rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.9) 100%);z-index:1;}
+.hero::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(212,175,55,0.12),rgba(0,0,0,0.8),rgba(59,130,246,0.08));z-index:1;}
 
-    /* Animations */
-    @keyframes fadeInSlide {
-      from { opacity: 0; transform: translateY(-20px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-  </style>
-</head>
-<body>
+.hero-content{position:relative;z-index:2;text-align:center;max-width:900px;padding:2rem;animation:fadeInUp 1.2s ease-out;}
 
-  <!-- Hero -->
-  <div class="hero">
-    <div class="hero-content">
-      <h1>Why Retail Travelers Overpay</h1>
-      <p>Access insider travel deals with zero membership fees.</p>
-      <a href="#contact" class="cta-button">Connect Now</a>
-      <div class="fomo">Only 5 insider deals left this week!</div>
-    </div>
-  </div>
+.trust-badge{display:inline-block;background:rgba(212,175,55,0.2);backdrop-filter:blur(10px);border:1px solid rgba(212,175,55,0.5);padding:0.6rem 1.8rem;border-radius:30px;font-size:0.75rem;margin-bottom:1.5rem;letter-spacing:1px;text-transform:uppercase;font-weight:600;box-shadow:0 4px 15px rgba(212,175,55,0.2);}
 
-  <!-- Social Proof -->
-  <section id="social-proof">
-    <h2 class="section-heading">Trusted by Travelers Worldwide</h2>
-    <div class="testimonials">
-      <div class="card">
-        <h3>Jane D.</h3>
-        <p>Saved $3,500 on Maldives luxury villa!</p>
-      </div>
-      <div class="card">
-        <h3>Mark S.</h3>
-        <p>Exclusive insider flight deals — amazing experience.</p>
-      </div>
-      <div class="card">
-        <h3>Lucy K.</h3>
-        <p>Best luxury travel support I’ve ever had!</p>
-      </div>
-    </div>
-  </section>
+.hero h1{font-size:3.5rem;margin-bottom:1.5rem;line-height:1.15;text-shadow:0 2px 20px rgba(0,0,0,0.5);}
+.hero h1 .highlight{background:linear-gradient(135deg,#d4af37,#f4d03f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 
-  <!-- Savings -->
-  <section id="savings">
-    <h2 class="section-heading">Exclusive Savings</h2>
-    <div class="savings">
-      <div class="card">
-        <h3>Maldives</h3>
-        <p>Save up to $4,200 this week!</p>
-      </div>
-      <div class="card">
-        <h3>Dubai</h3>
-        <p>VIP airfare rates, limited spots!</p>
-      </div>
-      <div class="card">
-        <h3>Paris</h3>
-        <p>Insider deals only for select travelers.</p>
-      </div>
-    </div>
-  </section>
+.hero-subhead{font-size:1.4rem;margin-bottom:1.5rem;color:rgba(255,255,255,0.95);font-weight:500;text-shadow:0 2px 10px rgba(0,0,0,0.3);}
+.hero-value{font-size:1.15rem;margin-bottom:2.5rem;color:rgba(255,255,255,0.85);max-width:700px;margin-left:auto;margin-right:auto;line-height:1.8;}
 
-  <!-- Contact / Lead Form -->
-  <section id="contact">
-    <h2 class="section-heading">Connect With Us</h2>
-    <div class="contact-form">
-      <form action="https://wa.me/919773523563" method="get" target="_blank">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="4" placeholder="Your Message"></textarea>
-        <button type="submit">Send via WhatsApp</button>
-      </form>
-    </div>
-  </section>
+.cta-primary{display:inline-flex;align-items:center;gap:0.75rem;background:linear-gradient(135deg,#d4af37,#f4d03f);color:#0a0e1a;padding:1.4rem 3.5rem;font-weight:700;border:none;border-radius:50px;font-size:1.2rem;transition:all 0.4s;box-shadow:0 8px 30px rgba(212,175,55,0.4);position:relative;overflow:hidden;}
+.cta-primary::before{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);transition:0.6s;}
+.cta-primary:hover::before{left:100%;}
+.cta-primary:hover{background:linear-gradient(135deg,#f4d03f,#d4af37);transform:translateY(-3px) scale(1.02);box-shadow:0 12px 40px rgba(212,175,55,0.6);}
 
-  <script>
-    // Scroll-triggered fade-in
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
+.cta-subtext{font-size:0.9rem;color:rgba(255,255,255,0.7);margin-top:0.75rem;font-weight:500;}
 
-    sections.forEach(section => observer.observe(section));
-  </script>
+.stats-bar{display:flex;justify-content:center;gap:4rem;margin-top:4rem;flex-wrap:wrap;}
+.stat{text-align:center;position:relative;padding:1rem;animation:fadeInUp 1s ease-out;}
+.stat::after{content:"";position:absolute;right:-2rem;top:50%;transform:translateY(-50%);width:1px;height:40px;background:rgba(212,175,55,0.3);}
+.stat:last-child::after{display:none;}
+.stat-number{font-size:2.5rem;font-weight:700;background:linear-gradient(135deg,#d4af37,#f4d03f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;line-height:1;}
+.stat-label{font-size:0.9rem;color:rgba(255,255,255,0.7);margin-top:0.5rem;font-weight:500;}
 
-</body>
-</html>
+/* Urgency Banner */
+.urgency-banner{background:linear-gradient(135deg,rgba(212,175,55,0.15),rgba(212,175,55,0.08));border-top:1px solid rgba(212,175,55,0.3);border-bottom:1px solid rgba(212,175,55,0.3);padding:1rem 0;text-align:center;font-size:0.9rem;color:rgba(255,255,255,0.85);font-weight:500;backdrop-filter:blur(10px);}
+.urgency-banner span{color:#d4af37;font-weight:700;animation:pulse 1.2s infinite;}
+
+/* How It Works */
+.how-it-works{padding:6rem 0;background:linear-gradient(180deg,#000 0%,#0a0f1e 50%,#000 100%);position:relative;}
+.how-it-works::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 20% 50%,rgba(59,130,246,0.06) 0%,transparent 50%),radial-gradient(circle at 80% 50%,rgba(212,175,55,0.05) 0%,transparent 50%);pointer-events:none;}
+.how-it-works h2{font-size:3rem;text-align:center;margin-bottom:1.5rem;background:linear-gradient(135deg,#d4af37,#f4d03f);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.how-subtitle{text-align:center;font-size:1.2rem;color:rgba(255,255,255,0.8);margin-bottom:4rem;max-width:750px;margin-left:auto;margin-right:auto;font-weight:500;}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2.5rem;margin-top:3rem;position:relative;}
+.step{background:rgba(255,255,255,0.04);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);padding:2.5rem;border-radius:16px;text-align:center;transition:all 0.4s;position:relative;overflow:hidden;}
+.step::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(212,175,55,0.1),transparent);opacity:0;transition:0.4s;}
+.step:hover::before{opacity:1;}
+.step:hover{transform:translateY(-8px);border-color:rgba(212,175,55,0.5);box-shadow:0 12px 35px rgba(212,175,55,0.25);}
+.step-number{width:70px;height:70px;background:linear-gradient(135deg,#d4af37,#f4d03f);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:
