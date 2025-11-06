@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FirstFareClub – Free insider luxury travel. No fees. Connect to trusted consolidators.">
+  <title>FirstFareClub | Insider Luxury Travel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">FirstFareClub</div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <span class="cta" onclick="openPopup()">Get Quote</span>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Sky to Savanna: Insider Luxury Travel</h1>
+      <p>No membership fees. Direct access to unpublished airline & hotel rates reserved for industry insiders.</p>
+      <div class="hero-btn" onclick="openPopup()">Get My Free Insider Quote → Save up to 70%</div>
+    </div>
+  </section>
+
+  <!-- Trust Line -->
+  <div class="trust-line">
+    <p><strong>Trusted by 1,200+ travelers</strong> • Saved <strong>$1.2M</strong> in 2024</p>
+  </div>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="service-card">
+        <img src="assets/img/flight.jpg" alt="Flights">
+        <h3>Flights</h3>
+        <p>Business, economy, or first class. Insider fares to anywhere in the world.</p>
+      </div>
+      <div class="service-card">
+        <img src="assets/img/hotel.jpg" alt="Hotels">
+        <h3>Hotels</h3>
+        <p>Luxury and boutique stays at unpublished rates directly from wholesalers.</p>
+      </div>
+      <div class="service-card">
+        <img src="assets/img/car.jpg" alt="Car Rentals">
+        <h3>Car Rentals</h3>
+        <p>Premium cars delivered at your destination with exclusive insider pricing.</p>
+      </div>
+      <div class="service-card">
+        <img src="assets/img/cruise.jpg" alt="Cruises">
+        <h3>Cruises</h3>
+        <p>Unpublished fares for luxury cruises worldwide, all in one place.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section id="benefits">
+    <h2>Why FirstFareClub</h2>
+    <div class="benefits">
+      <div class="benefit-card">
+        <h4>No Membership Fees</h4>
+        <p>Access insider rates without paying any subscription or hidden fees.</p>
+      </div>
+      <div class="benefit-card">
+        <h4>Insider Rates</h4>
+        <p>Get prices normally reserved for travel industry insiders.</p>
+      </div>
+      <div class="benefit-card">
+        <h4>Human Experts</h4>
+        <p>Real specialists handle every booking — no bots, no algorithms.</p>
+      </div>
+      <div class="benefit-card">
+        <h4>24/7 Support</h4>
+        <p>Travel with confidence knowing we’re available anytime you need.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About FirstFareClub</h2>
+    <div class="about">
+      <p>FirstFareClub connects travelers directly with airline consolidators and hotel wholesalers, giving you insider rates usually reserved for industry insiders. We believe luxury travel should be accessible, transparent, and effortless — without hidden fees or memberships.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <div class="contact" id="connect">
+      <a href="https://wa.me/1234567890?text=Hi!%20I%20want%20insider%20fares" class="contact-btn" target="_blank">WhatsApp Us</a>
+      <a href="https://instagram.com/YOURPROFILE" class="contact-btn" target="_blank">Instagram</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 FirstFareClub. All Rights Reserved.
+  </footer>
+
+  <!-- Email Popup -->
+  <div id="popup" class="popup-overlay">
+    <div class="popup-content">
+      <span id="close-popup" class="close-btn">×</span>
+      <h3>Get Insider Rates (Free)</h3>
+      <form id="quote-form">
+        <input type="email" name="email" placeholder="you@email.com" required>
+        <button type="submit">Send My Quote</button>
+      </form>
+      <p><small>We’ll WhatsApp you in < 60 sec</small></p>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
