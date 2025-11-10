@@ -7,14 +7,13 @@
     <meta name="description" content="No fees. Direct access to wholesale airline & hotel rates. Save 30-70% on luxury travel." />
     <meta name="keywords" content="wholesale travel rates, insider flight deals, luxury consolidators, no membership fees">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="canonical" href="https://firstfareclub.vercel.app/"/>
+    <link rel="canonical" href="https://firstfareclub.info/"/>
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
         body{font-family:'Inter',sans-serif;color:#fff;background:#0b0f1a;line-height:1.6;overflow-x:hidden;}
         h1,h2,h3{font-family:'Playfair Display',serif;}
         .container{width:90%;max-width:1200px;margin:0 auto;}
         a{text-decoration:none;}
-
         /* === NAVIGATION === */
         nav{position:fixed;top:0;left:0;width:100%;background:rgba(11,15,26,0.95);z-index:1000;padding:1rem 0;box-shadow:0 2px 20px rgba(0,0,0,0.5);backdrop-filter:blur(10px);}
         .nav-container{display:flex;justify-content:space-between;align-items:center;}
@@ -22,7 +21,6 @@
         .nav-links{display:flex;gap:2.5rem;}
         .nav-links a{color:#fff;font-weight:500;transition:0.3s;font-size:1rem;}
         .nav-links a:hover{color:#d4af37;}
-
         /* === HERO === */
         .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:6rem 0 2rem;}
         .hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
@@ -40,14 +38,12 @@
         .stat{text-align:center;}
         .stat-number{font-size:2.4rem;font-weight:700;color:#d4af37;display:block;}
         .stat-label{font-size:0.9rem;color:rgba(255,255,255,0.7);margin-top:0.3rem;}
-
         /* === LIVE DEALS TICKER === */
         .live-deals{background:rgba(255,255,255,0.08);padding:2.5rem;border-radius:16px;margin-top:3rem;border:1px solid rgba(212,175,55,0.3);backdrop-filter:blur(5px);}
         .live-deals h3{font-size:1.6rem;color:#d4af37;margin-bottom:1rem;}
         .deal-ticker{display:flex;overflow:hidden;white-space:nowrap;animation:ticker 18s linear infinite;}
         .deal-item{display:inline-block;padding:0 3rem;font-size:1.1rem;color:#4ade80;font-weight:500;}
         @keyframes ticker{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
-
         /* === SECTIONS === */
         .section{padding:6rem 0;}
         .section-alt{background:linear-gradient(180deg,#0b0f1a,#111827);}
@@ -57,7 +53,6 @@
         .card:hover{background:rgba(255,255,255,0.07);transform:translateX(6px);box-shadow:0 8px 30px rgba(212,175,55,0.25);}
         .card-icon{font-size:2.2rem;margin-bottom:1.2rem;}
         .card h3{font-size:1.35rem;margin-bottom:0.8rem;color:#fff;}
-
         /* === SAVINGS CARDS === */
         .savings-card{background:rgba(255,255,255,0.06);padding:2.5rem;border-radius:16px;border:1px solid rgba(255,255,255,0.12);transition:0.3s;}
         .savings-card:hover{transform:translateY(-6px);box-shadow:0 12px 35px rgba(212,175,55,0.3);}
@@ -68,7 +63,6 @@
         .retail{text-decoration:line-through;color:rgba(255,255,255,0.45);}
         .insider{color:#4ade80;}
         .savings-amount{background:linear-gradient(135deg,#d4af37,#b38c24);color:#0b0f1a;padding:1.2rem;border-radius:12px;text-align:center;margin-top:1.5rem;font-weight:700;font-size:1.2rem;}
-
         /* === TESTIMONIALS === */
         .testimonial{background:rgba(255,255,255,0.04);padding:2.5rem;border-radius:16px;border-left:4px solid #d4af37;transition:0.3s;}
         .testimonial:hover{box-shadow:0 8px 30px rgba(212,175,55,0.2);}
@@ -78,7 +72,6 @@
         .author-info{flex:1;}
         .author-name{font-weight:600;color:#fff;}
         .author-save{font-size:0.9rem;color:#4ade80;margin-top:0.3rem;}
-
         /* === EMAIL CAPTURE === */
         .email-form{max-width:650px;margin:0 auto;background:rgba(255,255,255,0.06);padding:3rem;border-radius:16px;border:1px solid rgba(212,175,55,0.25);backdrop-filter:blur(8px);}
         .form-group{margin-bottom:1.8rem;}
@@ -90,20 +83,16 @@
         .btn-submit{width:100%;background:#d4af37;color:#0b0f1a;padding:1.4rem;font-weight:600;border:none;border-radius:12px;font-size:1.2rem;cursor:pointer;transition:0.3s;}
         .btn-submit:hover{background:#b38c24;transform:translateY(-3px);box-shadow:0 10px 30px rgba(212,175,55,0.4);}
         .privacy-note{text-align:center;margin-top:1.5rem;font-size:0.85rem;color:rgba(255,255,255,0.6);}
-
         /* === FOOTER === */
         footer{text-align:center;padding:4rem 0;background:#070a12;font-size:0.95rem;color:rgba(255,255,255,0.6);border-top:1px solid rgba(255,255,255,0.15);}
         footer a{color:#d4af37;transition:0.3s;}
         footer a:hover{color:#b38c24;}
-
         /* === FLOATING WA BUTTON === */
         .floating-wa{position:fixed;bottom:25px;right:25px;background:#25D366;color:#fff;width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.2rem;box-shadow:0 10px 35px rgba(37,211,102,0.4);z-index:999;animation:float 3s ease-in-out infinite;transition:0.3s;}
         .floating-wa:hover{transform:scale(1.1);}
         @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
-
         /* === ANIMATIONS === */
         @keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
-
         /* === RESPONSIVE === */
         @media(max-width:768px){
             .hero h1{font-size:2.5rem;}
@@ -117,17 +106,16 @@
     </style>
 </head>
 <body>
-
     <!-- NAVIGATION -->
     <nav>
         <div class="nav-container container">
-            <a href="index.html" class="logo">First Fare Club</a>
+            <a href="/" class="logo">First Fare Club</a>
             <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="deals.html">Live Deals</a>
-                <a href="contact.html">Contact</a>
+                <a href="/">Home</a>
+                <a href="#how">How It Works</a>
+                <a href="#savings">Savings</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -138,7 +126,9 @@
             <source src="https://cdn.videvo.net/videvo_files/video/free/2019-11/large_watermarked/190919_07_Luxury_Maldives_1080p_preview.mp4" type="video/mp4">
         </video>
         <div class="hero-content container">
-            <div class="trust-badge">IATA-CERTIFIED • 10+ YEARS • $1.6M+ SAVED</div>
+            <div class="trust-badge">
+                FOUNDER: HIMANSHU SHARMA • 10+ YRS WHOLESALE • $1.6M+ SAVED
+            </div>
             <h1>Sky to Savanna: <span class="highlight">Insider Luxury Travel</span></h1>
             <p class="hero-subhead">No Membership Fees. Direct Access to Unpublished Wholesale Rates.</p>
             <p class="hero-value">I connect you to the same consolidators used by $500/hour luxury advisors. You save 30-70% off retail. I earn a small referral commission from them — never from you.</p>
@@ -151,27 +141,33 @@
                 <div class="stat"><span class="stat-number">$1.6M</span><span class="stat-label">Total Saved</span></div>
                 <div class="stat"><span class="stat-number">24/7</span><span class="stat-label">WhatsApp Support</span></div>
             </div>
-            <!-- LIVE DEALS -->
+
+            <!-- LIVE DEALS (REAL + DISCLAIMER) -->
             <div class="live-deals">
-                <h3>Live Wholesale Deals (Updated Hourly)</h3>
+                <h3>Sample Deals (Last 24h)</h3>
                 <div class="deal-ticker">
-                    <span class="deal-item">NYC → Paris First Class: $1,600 (Retail $2,800)</span>
-                    <span class="deal-item">Maldives Overwater Villa: $3,100 (Retail $5,200)</span>
-                    <span class="deal-item">Kenya Safari Package: $2,900 (Retail $4,500)</span>
-                    <span class="deal-item">Singapore Luxury Cruise: $1,199 (Retail $2,900)</span>
-                    <!-- Duplicate for seamless loop -->
-                    <span class="deal-item">NYC → Paris First Class: $1,600 (Retail $2,800)</span>
-                    <span class="deal-item">Maldives Overwater Villa: $3,100 (Retail $5,200)</span>
-                    <span class="deal-item">Kenya Safari Package: $2,900 (Retail $4,500)</span>
-                    <span class="deal-item">Singapore Luxury Cruise: $1,199 (Retail $2,900)</span>
+                    <span class="deal-item">NYC → Dubai Business: $2,499 (Retail $4,200)</span>
+                    <span class="deal-item">Maldives Villa: $3,100 (Retail $5,200)</span>
+                    <span class="deal-item">Kenya Safari: $2,900 (Retail $4,500)</span>
+                    <span class="deal-item">Singapore Cruise: $1,199 (Retail $2,900)</span>
+                    <!-- Duplicate for loop -->
+                    <span class="deal-item">NYC → Dubai Business: $2,499 (Retail $4,200)</span>
+                    <span class="deal-item">Maldives Villa: $3,100 (Retail $5,200)</span>
+                    <span class="deal-item">Kenya Safari: $2,900 (Retail $4,500)</span>
+                    <span class="deal-item">Singapore Cruise: $1,199 (Retail $2,900)</span>
                 </div>
-                <p style="margin-top:1rem;font-size:0.9rem;"><small>Real consolidator inventory. <a href="https://wa.me/+919773523563" style="color:#d4af37;">Get yours →</a></small></p>
+                <p style="margin-top:1rem;font-size:0.9rem;">
+                    <small>Real inventory from IATA consolidators. 
+                        <a href="https://wa.me/+919773523563" style="color:#d4af37;">Get your quote →</a>
+                        <br><em>Your price may vary based on dates & availability.</em>
+                    </small>
+                </p>
             </div>
         </div>
     </section>
 
     <!-- HOW IT WORKS -->
-    <section class="section section-alt">
+    <section class="section section-alt" id="how">
         <div class="container">
             <h2>How It Works</h2>
             <div class="grid">
@@ -183,7 +179,7 @@
                 <div class="card">
                     <div class="card-icon">2</div>
                     <h3>I Check Inventory</h3>
-                    <p>I query consolidator partners and negotiate best rates.</p>
+                    <p>I query 12+ IATA-accredited consolidators and negotiate.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">3</div>
@@ -200,7 +196,7 @@
     </section>
 
     <!-- SAVINGS EXAMPLES -->
-    <section class="section">
+    <section class="section" id="savings">
         <div class="container">
             <h2>Real Savings Examples</h2>
             <div class="grid">
@@ -211,10 +207,10 @@
                     <div class="savings-amount">You Save: $2,100</div>
                 </div>
                 <div class="savings-card">
-                    <h3>NYC → Paris First Class</h3>
-                    <div class="price-row"><span class="price-label">Airline Direct:</span><span class="price-value retail">$2,800</span></div>
-                    <div class="price-row"><span class="price-label">Insider Rate:</span><span class="price-value insider">$1,600</span></div>
-                    <div class="savings-amount">You Save: $1,200</div>
+                    <h3>NYC → Dubai Business Class</h3>
+                    <div class="price-row"><span class="price-label">Airline Direct:</span><span class="price-value retail">$4,200</span></div>
+                    <div class="price-row"><span class="price-label">Insider Rate:</span><span class="price-value insider">$2,499</span></div>
+                    <div class="savings-amount">You Save: $1,701</div>
                 </div>
                 <div class="savings-card">
                     <h3>Kenya Safari Package</h3>
@@ -227,7 +223,7 @@
     </section>
 
     <!-- TESTIMONIALS -->
-    <section class="section section-alt">
+    <section class="section section-alt" id="testimonials">
         <div class="container">
             <h2>Trusted by Smart Travelers</h2>
             <div class="grid">
@@ -266,7 +262,7 @@
     </section>
 
     <!-- EMAIL CAPTURE -->
-    <section class="section">
+    <section class="section" id="contact">
         <div class="container">
             <h2>Not Ready to Chat? Get Insider Deals via Email</h2>
             <p style="text-align:center;color:rgba(255,255,255,0.8);margin-bottom:3rem;font-size:1.1rem;">Join 1,200+ travelers receiving weekly mistake fares and flash sales</p>
@@ -294,9 +290,14 @@
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>© 2025 First Fare Club by Himanshu Joshi. All rights reserved.</p>
+            <p>© 2025 First Fare Club by <strong>Himanshu Sharma</strong>. All rights reserved.</p>
             <p style="margin-top:0.8rem;">
-                <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a>
+                <a href="/privacy.html">Privacy Policy</a> | 
+                <a href="/terms.html">Terms & Conditions</a> | 
+                <a href="https://wa.me/+919773523563" target="_blank">WhatsApp</a>
+            </p>
+            <p style="margin-top:1rem;font-size:0.8rem;">
+                <small>Open Source: <a href="https://github.com/himanshu51/firstfareclub" target="_blank">github.com/himanshu51/firstfareclub</a></small>
             </p>
         </div>
     </footer>
